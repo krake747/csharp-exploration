@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PdfApp", "PdfApp", "{1854C47F-E09A-4053-89F4-D3880EFA3A5B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HtmxApp", "HtmxApp", "{353AA7FF-D9BA-4982-935F-FD01773BAB57}"
+	ProjectSection(SolutionItems) = preProject
+		HtmxApp\tye-htmx.yml = HtmxApp\tye-htmx.yml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfGeneratorApp", "PdfApp\PdfGeneratorApp\PdfGeneratorApp.csproj", "{8C51107F-06A7-4B23-8A0B-7F1B3015C040}"
 EndProject

@@ -1,0 +1,24 @@
+# tye configuration file
+# https://github.com/dotnet/tye
+
+name: htmx-tye
+services:
+  - name: htmx-api
+    project: Htmx.Api/Htmx.Api.csproj
+    bindings:
+      - port: 5000
+        protocol: https
+  - name: htmx-app
+    project: Htmx.App/Htmx.App.csproj
+    bindings:
+      - port: 5001
+        protocol: https
+ingress:
+  - name: ingress
+    bindings:
+      - port: 8080
+        protocol: https
+    rules:
+      - path: /api  
+        service: htmx-api
+      - service: htmx-app

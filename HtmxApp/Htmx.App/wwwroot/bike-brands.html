@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/app.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.7"></script>
+    <title>
+        Bike brands
+    </title>
+</head>
+
+<body>
+
+</body>
+<h1 class="text-5xl italic">Bike brands</h1>
+<p>This component demonstrates fetching bike brands data from the server.</p>
+<!-- Lazy Loading -->
+<button hx-get="/api/bike-brands" hx-trigger="click" hx-target="#target-element">
+    Get Bike Brands
+</button>
+<div id="target-element">
+    Bike Brands data will appear here.
+</div>
+</html>
