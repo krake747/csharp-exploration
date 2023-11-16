@@ -1,14 +1,21 @@
 using Bikes.Grpc.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+
 // Add services to the container.
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(Log.Logger);
+builder.Services.AddSingleton(Log.Logger);
 builder.Services.AddGrpc();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.MapGrpcService<GreeterService>();
 app.MapGrpcService<ProductsService>();
 app.MapGet("/", () =>
     """

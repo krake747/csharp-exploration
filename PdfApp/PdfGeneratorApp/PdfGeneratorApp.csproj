@@ -9,13 +9,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="..\.dockerignore">
-            <Link>.dockerignore</Link>
-        </Content>
+        <PackageReference Include="QuestPDF" Version="2023.10.1"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="QuestPDF" Version="2023.10.1"/>
+        <Protobuf Include="..\protos\products.proto" Link="Protos\products.proto"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>
