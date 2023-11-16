@@ -19,6 +19,6 @@ ingress:
       - port: 8080
         protocol: https
     rules:
-      - path: /api  
+      - path: /api
         service: htmx-api
       - service: htmx-app

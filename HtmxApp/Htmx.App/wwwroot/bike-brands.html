@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="~/css/app.min.css" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.9.7"></script>
     <title>
@@ -17,7 +17,7 @@
 <h1 class="text-5xl italic">Bike brands</h1>
 <p>This component demonstrates fetching bike brands data from the server.</p>
 <!-- Lazy Loading -->
-<button hx-get="/api/bike-brands" hx-trigger="click" hx-target="#target-element">
+<button hx-get="/api/bike-brands" hx-target="#target-element" hx-trigger="click">
     Get Bike Brands
 </button>
 <div id="target-element">

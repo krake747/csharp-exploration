@@ -1,9 +1,10 @@
-﻿using QuestPDF.Fluent;
+﻿using QuestPDF;
+using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Previewer;
 
-QuestPDF.Settings.License = LicenseType.Community;
+Settings.License = LicenseType.Community;
 
 var doc = Document.Create(container => container.Page(page =>
 {
@@ -15,7 +16,7 @@ var doc = Document.Create(container => container.Page(page =>
         .Text("Hello from PDF Generator")
         .SemiBold()
         .FontSize(24);
-    
+
     page.Content()
         .Column(x => x.Item().Text(Placeholders.Paragraph()));
 }));
