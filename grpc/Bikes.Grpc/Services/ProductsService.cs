@@ -23,12 +23,12 @@ public sealed class ProductsService : ProductsServiceBase
     public override async Task<Response> ClientStream(IAsyncStreamReader<Request> requestStream,
         ServerCallContext context)
     {
-        var response = new Response { Message = "From the server I got product " };
+        var response = new Response { Message = string.Empty };
         while (await requestStream.MoveNext())
         {
             var requestPayLoad = requestStream.Current;
             _logger.Information("{RequestPayLoad}", requestPayLoad);
-            response.Message = requestPayLoad.ToString();
+            response.Message = $"Got Id {requestPayLoad}";
         }
 
         return response;
@@ -37,7 +37,7 @@ public sealed class ProductsService : ProductsServiceBase
     public override async Task ServerStream(Request request, IServerStreamWriter<Response> responseStream,
         ServerCallContext context)
     {
-        foreach (var id in Enumerable.Range(1, 100))
+        for (var id = 0; id < 100; id++)
         {
             await responseStream.WriteAsync(new Response { Message = $"ProductId = {id}" });
         }
