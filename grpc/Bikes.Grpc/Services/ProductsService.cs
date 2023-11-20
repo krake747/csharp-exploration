@@ -16,6 +16,7 @@ public sealed class ProductsService : ProductsServiceBase
 
     public override Task<Response> Unary(Request request, ServerCallContext context)
     {
+        context.WriteOptions = new WriteOptions(WriteFlags.NoCompress);
         var response = new Response
         {
             Message = $"We got {request.Content} from products server"
