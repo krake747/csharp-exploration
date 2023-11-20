@@ -11,7 +11,15 @@ public sealed class LoggingInterceptor(ILogger logger) : Interceptor
         ServerCallContext context,
         UnaryServerMethod<TRequest, TResponse> continuation)
     {
-        logger.Information("Server intercepting the call type of: {Method}, {Status}", context.Method, context.Status);
-        return await continuation(request, context);
+        try
+        {
+            logger.Information("Server intercepting the call type of: {Method}, {Status}", context.Method, context.Status);
+            return await continuation(request, context);
+        }
+        catch (Exception ex)
+        {
+            logger.Error(ex, "Error thrown by {Method}", context.Method);
+            throw;
+        }
     }
 }
