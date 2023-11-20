@@ -37,5 +37,3 @@ await repo.ServerStreaming();
 
 Log.Information("Grpc - Bi Directional Streaming");
 await repo.BiDirectionalStreaming();
-
-

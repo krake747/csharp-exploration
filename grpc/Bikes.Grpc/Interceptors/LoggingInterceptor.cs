@@ -7,7 +7,7 @@ namespace Bikes.Grpc.Interceptors;
 public sealed class LoggingInterceptor(ILogger logger) : Interceptor
 {
     public override async Task<TResponse> UnaryServerHandler<TRequest, TResponse>(
-        TRequest request, 
+        TRequest request,
         ServerCallContext context,
         UnaryServerMethod<TRequest, TResponse> continuation)
     {

@@ -21,7 +21,7 @@ public sealed class ProductsService : ProductsServiceBase
         {
             Message = $"We got {request.Content} from products server"
         };
-        
+
         return Task.FromResult(response);
     }
 

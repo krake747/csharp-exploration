@@ -9,7 +9,7 @@ namespace Bikes.Consumer;
 public sealed class ProductsRepository(ILogger logger, GrpcClientFactory factory)
 {
     private readonly ProductsServiceClient client = factory.CreateClient<ProductsServiceClient>("Products");
-        
+
     public void Unary(Request request, DateTime? deadline = null)
     {
         var metaData = new Metadata { { "grpc-accept-encoding", "gzip" } };
@@ -36,7 +36,7 @@ public sealed class ProductsRepository(ILogger logger, GrpcClientFactory factory
         await foreach (var response in serverStream.ResponseStream.ReadAllAsync(token))
         {
             logger.Information("{Message}", response.Message);
-        } 
+        }
     }
 
     public async Task BiDirectionalStreaming(DateTime? deadline = null, CancellationToken token = default)
