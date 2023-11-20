@@ -1,3 +1,4 @@
+using Bikes.Grpc.Interceptors;
 using Bikes.Grpc.Services;
 using Serilog;
 
@@ -11,7 +12,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger);
 builder.Services.AddSingleton(Log.Logger);
-builder.Services.AddGrpc();
+builder.Services.AddGrpc(o => o.Interceptors.Add<LoggingInterceptor>());
 
 var app = builder.Build();
 

@@ -13,7 +13,7 @@ public static class Interceptors
             ClientInterceptorContext<TRequest, TResponse> context, 
             BlockingUnaryCallContinuation<TRequest, TResponse> continuation)
         {
-            logger.Information("Intercepting the call type of: {MethodName}, {MethodType}", context.Method.FullName, context.Method.Type);
+            logger.Information("Consumer intercepting the call type of: {MethodName}, {MethodType}", context.Method.FullName, context.Method.Type);
             return continuation(request, context);
         }
     }
