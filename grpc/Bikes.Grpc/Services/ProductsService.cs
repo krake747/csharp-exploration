@@ -14,11 +14,15 @@ public sealed class ProductsService : ProductsServiceBase
         _logger = logger;
     }
 
-    public override Task<Response> Unary(Request request, ServerCallContext context) =>
-        Task.FromResult(new Response
+    public override Task<Response> Unary(Request request, ServerCallContext context)
+    {
+        var response = new Response
         {
             Message = $"We got {request.Content} from products server"
-        });
+        };
+        
+        return Task.FromResult(response);
+    }
 
     public override async Task<Response> ClientStream(IAsyncStreamReader<Request> requestStream,
         ServerCallContext context)

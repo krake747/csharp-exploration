@@ -1,3 +1,4 @@
+using System.IO.Compression;
 using Bikes.Grpc.Interceptors;
 using Bikes.Grpc.Services;
 using Serilog;
@@ -6,13 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
+    .MinimumLevel.Information()
     .CreateLogger();
 
 // Add services to the container.
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(Log.Logger);
 builder.Services.AddSingleton(Log.Logger);
-builder.Services.AddGrpc(o => o.Interceptors.Add<LoggingInterceptor>());
+builder.Services.AddGrpc(o =>
+{
+    o.Interceptors.Add<LoggingInterceptor>();
+    o.ResponseCompressionAlgorithm = "gzip";
+    o.ResponseCompressionLevel = CompressionLevel.SmallestSize;
+});
 
 var app = builder.Build();
 

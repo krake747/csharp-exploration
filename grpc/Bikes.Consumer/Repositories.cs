@@ -12,7 +12,8 @@ public sealed class ProductsRepository(ILogger logger, GrpcClientFactory factory
         
     public void Unary(Request request, DateTime? deadline = null)
     {
-        var response = client.Unary(request, deadline: deadline);
+        var metaData = new Metadata { { "grpc-accept-encoding", "gzip" } };
+        var response = client.Unary(request, metaData, deadline);
         logger.Information("Unary: {Response}", response.Message);
     }
 
