@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "protos", "protos", "{32744A
 		grpc\protos\products.proto = grpc\protos\products.proto
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bikes.Grpc.Tests.Unit", "grpc\Bikes.Grpc.Tests.Unit\Bikes.Grpc.Tests.Unit.csproj", "{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bikes.Grpc.Tests.Integration", "grpc\Bikes.Grpc.Tests.Integration\Bikes.Grpc.Tests.Integration.csproj", "{36B7B286-7EEB-409C-AFF2-C52EF42EEF87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +54,14 @@ Global
 		{294EE692-E8B9-4972-BCFA-EE5443F83E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{294EE692-E8B9-4972-BCFA-EE5443F83E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{294EE692-E8B9-4972-BCFA-EE5443F83E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B7B286-7EEB-409C-AFF2-C52EF42EEF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B7B286-7EEB-409C-AFF2-C52EF42EEF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B7B286-7EEB-409C-AFF2-C52EF42EEF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B7B286-7EEB-409C-AFF2-C52EF42EEF87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8C51107F-06A7-4B23-8A0B-7F1B3015C040} = {1854C47F-E09A-4053-89F4-D3880EFA3A5B}
@@ -58,5 +70,7 @@ Global
 		{74952A6A-F8C3-413B-A376-82A3D2AD070B} = {068A6DAB-A92E-4CA6-B9D0-24D9BC2FADD8}
 		{294EE692-E8B9-4972-BCFA-EE5443F83E9B} = {068A6DAB-A92E-4CA6-B9D0-24D9BC2FADD8}
 		{32744AA6-6490-4746-98EF-A5939C103248} = {068A6DAB-A92E-4CA6-B9D0-24D9BC2FADD8}
+		{B8E1C0A6-FCDD-4F7B-9677-CCA710197D5C} = {068A6DAB-A92E-4CA6-B9D0-24D9BC2FADD8}
+		{36B7B286-7EEB-409C-AFF2-C52EF42EEF87} = {068A6DAB-A92E-4CA6-B9D0-24D9BC2FADD8}
 	EndGlobalSection
 EndGlobal

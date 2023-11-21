@@ -1,19 +1,11 @@
 ﻿using Bikes.Grpc.Products;
 using Grpc.Core;
 using static Bikes.Grpc.Products.ProductsService;
-using ILogger = Serilog.ILogger;
 
 namespace Bikes.Grpc.Services;
 
-public sealed class ProductsService : ProductsServiceBase
+public sealed class ProductsService : ProductsServiceBase, IProductsService
 {
-    private readonly ILogger _logger;
-
-    public ProductsService(ILogger logger)
-    {
-        _logger = logger;
-    }
-
     public override Task<Response> Unary(Request request, ServerCallContext context)
     {
         context.WriteOptions = new WriteOptions(WriteFlags.NoCompress);
@@ -32,7 +24,6 @@ public sealed class ProductsService : ProductsServiceBase
         while (await requestStream.MoveNext())
         {
             var requestPayLoad = requestStream.Current;
-            _logger.Information("{RequestPayLoad}", requestPayLoad);
             response.Message = $"Got Id {requestPayLoad}";
         }
 
